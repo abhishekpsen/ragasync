@@ -15,7 +15,7 @@ def index():
 def music():
 	if request.method == 'POST':
 		artist = request.form['artist']
-		time_of_day = get_time_of_day(request.form['time'])
+		time_of_day = get_time_of_day(int(request.form['time']))
 		raaga = get_raaga(time_of_day)
 		video_urls = get_youtube_videos(raaga, artist)
 		return render_template('music.html',video_urls=video_urls,time_of_day=time_of_day,raaga=raaga)
